@@ -195,21 +195,11 @@ func (hd *Handlers) setHandlers() {
 		Methods(http.MethodOptions, "GET")
 	_ = hd.setHandler(HandlerPathStorageHistory, hd.handleStorageDataHistory, true, get, get).
 		Methods(http.MethodOptions, "GET")
-	_ = hd.setHandler(HandlerPathPrescriptionInfo, hd.handlePrescriptionInfo, true, get, get).
-		Methods(http.MethodOptions, "GET")
-	_ = hd.setHandler(HandlerPathPrescriptionDesign, hd.handlePrescriptionDesign, true, get, get).
-		Methods(http.MethodOptions, "GET")
 	_ = hd.setHandler(HandlerPathDIDData, hd.handleDIDData, true, get, get).
 		Methods(http.MethodOptions, "GET")
 	_ = hd.setHandler(HandlerPathDIDDesign, hd.handleDIDDesign, true, get, get).
 		Methods(http.MethodOptions, "GET")
 	_ = hd.setHandler(HandlerPathDIDDocument, hd.handleDIDDocument, true, get, get).
-		Methods(http.MethodOptions, "GET")
-	_ = hd.setHandler(HandlerPathDmileDataByTxID, hd.handleDmileDataByTxID, true, get, get).
-		Methods(http.MethodOptions, "GET")
-	_ = hd.setHandler(HandlerPathDmileDesign, hd.handleDmileDesign, true, get, get).
-		Methods(http.MethodOptions, "GET")
-	_ = hd.setHandler(HandlerPathDmileDataByMerkleRoot, hd.handleDmileDataByMerkleRoot, true, get, get).
 		Methods(http.MethodOptions, "GET")
 	//_ = hd.setHandler(HandlerPathResource, hd.handleResource, true, get, get).
 	//	Methods(http.MethodOptions, "GET")

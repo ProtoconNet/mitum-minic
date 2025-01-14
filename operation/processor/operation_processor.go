@@ -7,11 +7,9 @@ import (
 	extensioncurrency "github.com/ProtoconNet/mitum-currency/v3/operation/extension"
 	currencyprocessor "github.com/ProtoconNet/mitum-currency/v3/operation/processor"
 	currencytypes "github.com/ProtoconNet/mitum-currency/v3/types"
-	"github.com/ProtoconNet/mitum-d-mile/operation/dmile"
 	"github.com/ProtoconNet/mitum-did-registry/operation/did"
 	"github.com/ProtoconNet/mitum-nft/operation/nft"
 	"github.com/ProtoconNet/mitum-point/operation/point"
-	"github.com/ProtoconNet/mitum-prescription/operation/prescription"
 	"github.com/ProtoconNet/mitum-storage/operation/storage"
 	"github.com/ProtoconNet/mitum-timestamp/operation/timestamp"
 	"github.com/ProtoconNet/mitum-token/operation/token"
@@ -299,29 +297,6 @@ func CheckDuplication(opr *currencyprocessor.OperationProcessor, op base.Operati
 		duplicationTypeSenderID = currencyprocessor.DuplicationKey(fact.Sender().String(), DuplicationTypeSender)
 		duplicationTypeStorageData = currencyprocessor.DuplicationKey(
 			fmt.Sprintf("%s:%s", fact.Contract().String(), fact.DataKey()), DuplicationTypeStorageData)
-	case prescription.RegisterModel:
-		fact, ok := t.Fact().(prescription.RegisterModelFact)
-		if !ok {
-			return errors.Errorf("expected RegisterModelFact, not %T", t.Fact())
-		}
-		duplicationTypeSenderID = currencyprocessor.DuplicationKey(fact.Sender().String(), DuplicationTypeSender)
-		duplicationTypeContractID = currencyprocessor.DuplicationKey(fact.Contract().String(), DuplicationTypeContract)
-	case prescription.RegisterPrescription:
-		fact, ok := t.Fact().(prescription.RegisterPrescriptionFact)
-		if !ok {
-			return errors.Errorf("expected RegisterPrescriptionFact, not %T", t.Fact())
-		}
-		duplicationTypeSenderID = currencyprocessor.DuplicationKey(fact.Sender().String(), DuplicationTypeSender)
-		duplicationTypePrescription = currencyprocessor.DuplicationKey(
-			fmt.Sprintf("%s:%s", fact.Contract().String(), fact.PrescriptionHash()), DuplicationTypePrescription)
-	case prescription.UsePrescription:
-		fact, ok := t.Fact().(prescription.UsePrescriptionFact)
-		if !ok {
-			return errors.Errorf("expected UsePrescriptionFact, not %T", t.Fact())
-		}
-		duplicationTypeSenderID = currencyprocessor.DuplicationKey(fact.Sender().String(), DuplicationTypeSender)
-		duplicationTypePrescription = currencyprocessor.DuplicationKey(
-			fmt.Sprintf("%s:%s", fact.Contract().String(), fact.PrescriptionHash()), DuplicationTypePrescription)
 	case did.CreateDID:
 		fact, ok := t.Fact().(did.CreateDIDFact)
 		if !ok {
@@ -358,33 +333,6 @@ func CheckDuplication(opr *currencyprocessor.OperationProcessor, op base.Operati
 			dids = append(dids, key)
 		}
 		duplicationTypeDIDPubKey = dids
-	case dmile.RegisterModel:
-		fact, ok := t.Fact().(dmile.RegisterModelFact)
-		if !ok {
-			return errors.Errorf("expected %T, not %T", dmile.RegisterModelFact{}, t.Fact())
-		}
-		duplicationTypeSenderID = currencyprocessor.DuplicationKey(fact.Sender().String(), DuplicationTypeSender)
-		duplicationTypeContractID = currencyprocessor.DuplicationKey(fact.Contract().String(), DuplicationTypeContract)
-	case dmile.CreateData:
-		fact, ok := t.Fact().(dmile.CreateDataFact)
-		if !ok {
-			return errors.Errorf("expected %T, not %T", dmile.CreateDataFact{}, t.Fact())
-		}
-		duplicationTypeDMileData = []string{currencyprocessor.DuplicationKey(
-			fmt.Sprintf("%s:%s", fact.Contract().String(), fact.MerkleRoot()), DuplicationTypeDMile)}
-		duplicationTypeSenderID = currencyprocessor.DuplicationKey(fact.Sender().String(), DuplicationTypeSender)
-	case dmile.MigrateData:
-		fact, ok := t.Fact().(dmile.MigrateDataFact)
-		if !ok {
-			return errors.Errorf("expected MigrateDataFact, not %T", t.Fact())
-		}
-		duplicationTypeSenderID = currencyprocessor.DuplicationKey(fact.Sender().String(), DuplicationTypeSender)
-		var datas []string
-		for _, v := range fact.Items() {
-			key := currencyprocessor.DuplicationKey(fmt.Sprintf("%s:%s", v.Contract().String(), v.MerkleRoot()), DuplicationTypeDMile)
-			datas = append(datas, key)
-		}
-		duplicationTypeDMileData = datas
 	default:
 		return nil
 	}

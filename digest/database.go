@@ -28,11 +28,7 @@ var (
 	defaultColNameDAOVotingPowerBox    = "digest_dao_vpb"
 	defaultColNameStorage              = "digest_storage"
 	defaultColNameStorageData          = "digest_storage_data"
-	defaultColNamePrescription         = "digest_prescription"
-	defaultColNamePrescriptionInfo     = "digest_prescription_info"
 	defaultColNameDIDRegistry          = "digest_did_registry"
 	defaultColNameDIDData              = "digest_did_registry_data"
 	defaultColNameDIDDocument          = "digest_did_registry_document"
-	defaultColNameDmile                = "digest_dmile_service"
-	defaultColNameDmileData            = "digest_dmile_data"
 )
