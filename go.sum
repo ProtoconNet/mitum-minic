@@ -11,8 +11,8 @@ github.com/ProtoconNet/mitum-dao v0.0.0-20241111043115-ffa4c11e55a5 h1:gA12/gHwR
 github.com/ProtoconNet/mitum-dao v0.0.0-20241111043115-ffa4c11e55a5/go.mod h1:Emu3phlBi6oIs7jKOn0/NFAQcRLPYuGmYdk0EAWNa0g=
 github.com/ProtoconNet/mitum-did-registry v0.0.0-20241209092044-7e510f90ed41 h1:GMvAWHp2ArtOxcnXXwIEHX7x4/LAwV/noQzsnd9qxME=
 github.com/ProtoconNet/mitum-did-registry v0.0.0-20241209092044-7e510f90ed41/go.mod h1:R44zpC4O2IKFRXG52BTFwnhutrqsghLpskeQsoVShNQ=
-github.com/ProtoconNet/mitum-nft v0.0.0-20241111044002-b5f01574c9a9 h1:/m2jEPKgGGv7eQOnnRxl9DyQQKp9dVOvADzr7fqwPbs=
-github.com/ProtoconNet/mitum-nft v0.0.0-20241111044002-b5f01574c9a9/go.mod h1:MEJlQ5e+sJ3JjGHBP6O6oYBlKTGyDgr0CdK0SnMBh1A=
+github.com/ProtoconNet/mitum-nft v0.0.0-20250520082608-ed486444dadc h1:DgPiatGf4cW3GVyq9ICWgzmfIJrEG6d0qnIGit61cFA=
+github.com/ProtoconNet/mitum-nft v0.0.0-20250520082608-ed486444dadc/go.mod h1:MEJlQ5e+sJ3JjGHBP6O6oYBlKTGyDgr0CdK0SnMBh1A=
 github.com/ProtoconNet/mitum-point v0.0.0-20241111043419-a0dd49f38d8b h1:4z0AcCbE7/wVRkdv/tJ2tqSXuuO7Rcyk7jm35Uy/bdA=
 github.com/ProtoconNet/mitum-point v0.0.0-20241111043419-a0dd49f38d8b/go.mod h1:IRntJiH55yagaWWsCyvDIF8Fc2DIMoqfN/2xlD8XGiE=
 github.com/ProtoconNet/mitum-prescription v0.0.0-20241111042028-0194dde773b0 h1:P4r2stNO6tIqeCa35i4l8IR8zzaOYeJqO1rLj+e2J3w=
